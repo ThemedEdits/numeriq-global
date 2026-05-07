@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.remove('open');
     navLinksEl.classList.remove('open');
     mobileOverlay.classList.remove('active');
+    navbar.classList.remove('menu-open');
     document.body.style.overflow = '';
     hamburger.setAttribute('aria-expanded', 'false');
   };
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.add('open');
     mobileOverlay.classList.add('active');
     navLinksEl.classList.add('open');
+    navbar.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
     hamburger.setAttribute('aria-expanded', 'true');
   };
@@ -150,12 +152,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─── SMOOTH ANCHOR SCROLL ──────────────── */
+/* ─── SMOOTH ANCHOR SCROLL ──────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight;
+        const wasScrolled = navbar.classList.contains('scrolled');
+        if (!wasScrolled) navbar.classList.add('scrolled');
+        const navH = navbar.offsetHeight;
+        if (!wasScrolled) navbar.classList.remove('scrolled');
+        const top = target.getBoundingClientRect().top + window.scrollY - navH;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });

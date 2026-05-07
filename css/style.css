@@ -672,3 +672,14 @@ input, select, textarea { font-family: inherit; }
   .nav-links { padding: 5.5rem 1.5rem 2.5rem; }
   .nav-link { font-size: 1.25rem; }
 }
+
+
+
+#navbar.menu-open {
+  background: rgba(255,255,255,.97) !important;
+  box-shadow: 0 1px 0 var(--border) !important;
+}
+#navbar.menu-open .logo-text { color: var(--navy) !important; }
+#navbar.menu-open .nav-logo-img.logo-light { opacity: 0 !important; }
+#navbar.menu-open .nav-logo-img.logo-dark  { opacity: 1 !important; }
+#navbar.menu-open .hamburger span { background: var(--navy) !important; }
