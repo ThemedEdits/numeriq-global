@@ -561,118 +561,74 @@
         </div>
 
         <div class="contact-form-wrap reveal-right">
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="John" required />
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@company.com" required />
-            </div>
-            <div class="form-group">
-              <label for="company">Company / Organization</label>
-              <input type="text" id="company" name="company" placeholder="Your company name" />
-            </div>
+          <form class="contact-form" id="contactForm" novalidate>
+  <div class="form-row">
+    <div class="form-group floating">
+      <input type="text" name="firstName" placeholder=" " autocomplete="given-name" />
+      <span class="float-label">First Name</span>
+      <span class="field-error"></span>
+    </div>
+    <div class="form-group floating">
+      <input type="text" name="lastName" placeholder=" " autocomplete="family-name" />
+      <span class="float-label">Last Name</span>
+      <span class="field-error"></span>
+    </div>
+  </div>
+  <div class="form-group floating">
+    <input type="email" name="email" placeholder=" " autocomplete="email" />
+    <span class="float-label">Email Address</span>
+    <span class="field-error"></span>
+  </div>
+  <div class="form-group floating">
+    <input type="text" name="company" placeholder=" " autocomplete="organization" />
+    <span class="float-label">Company / Organization <span class="optional">(optional)</span></span>
+    <span class="field-error"></span>
+  </div>
 
-            <!-- Custom Select Dropdown -->
-            <div class="form-group custom-select-wrapper">
-              <label for="service">Service of Interest</label>
-              <div class="custom-select" id="customSelect">
-                <div class="select-trigger">
-                  <span class="select-value">Select a service...</span>
-                  <i class="fa-solid fa-chevron-down select-icon"></i>
-                </div>
-                <div class="select-dropdown">
-                  <div class="dropdown-inner">
-                    <div class="dropdown-option" data-value="Technical Accounting Services">
-                      <span class="option-text">Technical Accounting Services</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Fractional CFO Advisory">
-                      <span class="option-text">Fractional CFO Advisory</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Cash Flow Forecasting">
-                      <span class="option-text">Cash Flow Forecasting</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Budgeting and Planning">
-                      <span class="option-text">Budgeting and Planning</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Group &amp; Foreign Consolidation">
-                      <span class="option-text">Group &amp; Foreign Consolidation</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Audit Liaison &amp; Readiness Support">
-                      <span class="option-text">Audit Liaison &amp; Readiness Support</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Intercompany Reconciliations">
-                      <span class="option-text">Intercompany Reconciliations</span>
-                      <span class="option-category">Reporting &amp; Compliance</span>
-                    </div>
+  <!-- Custom Select Dropdown -->
+  <div class="form-group custom-select-wrapper">
+    <span class="float-label float-label--select">Service of Interest</span>
+    <div class="custom-select" id="customSelect">
+      <div class="select-trigger">
+        <span class="select-value placeholder">Select a service...</span>
+        <i class="fa-solid fa-chevron-down select-icon"></i>
+      </div>
+      <div class="select-dropdown">
+        <div class="dropdown-inner">
+          <div class="dropdown-option" data-value="Technical Accounting Services"><span class="option-text">Technical Accounting Services</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="Fractional CFO Advisory"><span class="option-text">Fractional CFO Advisory</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="Cash Flow Forecasting"><span class="option-text">Cash Flow Forecasting</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="Budgeting and Planning"><span class="option-text">Budgeting and Planning</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="Group &amp; Foreign Consolidation"><span class="option-text">Group &amp; Foreign Consolidation</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="Audit Liaison &amp; Readiness Support"><span class="option-text">Audit Liaison &amp; Readiness Support</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="Intercompany Reconciliations"><span class="option-text">Intercompany Reconciliations</span><span class="option-category">Reporting &amp; Compliance</span></div>
+          <div class="dropdown-option" data-value="QuickBooks Setup and Management"><span class="option-text">QuickBooks Setup and Management</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Data Migration"><span class="option-text">Data Migration</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Standard Bookkeeping"><span class="option-text">Standard Bookkeeping</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Clean-up &amp; Catch-up Projects"><span class="option-text">Clean-up &amp; Catch-up Projects</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Management Accounts &amp; Financial Statements"><span class="option-text">Management &amp; Financial Statements</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Payroll Management &amp; Administration"><span class="option-text">Payroll Management &amp; Administration</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Accounts Payable &amp; Receivable"><span class="option-text">Accounts Payable &amp; Receivable</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="Fixed Asset Register Management"><span class="option-text">Fixed Asset Register Management</span><span class="option-category">Accounting Operations</span></div>
+          <div class="dropdown-option" data-value="General Inquiry"><span class="option-text">General Inquiry</span><span class="option-category">General</span></div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" name="service" id="service" />
+    <span class="field-error"></span>
+  </div>
 
-                    <div class="dropdown-option" data-value="QuickBooks Setup and Management">
-                      <span class="option-text">QuickBooks Setup and Management</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Data Migration">
-                      <span class="option-text">Data Migration</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Standard Bookkeeping">
-                      <span class="option-text">Standard Bookkeeping</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Clean-up &amp; Catch-up Projects">
-                      <span class="option-text">Clean-up &amp; Catch-up Projects</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Management Accounts &amp; Financial Statements">
-                      <span class="option-text">Management  &amp; Financial Statements</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Payroll Management &amp; Administration">
-                      <span class="option-text">Payroll Management &amp; Administration</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Accounts Payable &amp; Receivable">
-                      <span class="option-text">Accounts Payable &amp; Receivable</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
-                    <div class="dropdown-option" data-value="Fixed Asset Register Management">
-                      <span class="option-text">Fixed Asset Register Management</span>
-                      <span class="option-category">Accounting Operations</span>
-                    </div>
+  <div class="form-group floating">
+    <textarea name="message" rows="4" placeholder=" "></textarea>
+    <span class="float-label">Message</span>
+    <span class="field-error"></span>
+  </div>
 
-                    <div class="dropdown-option" data-value="General Inquiry">
-                      <span class="option-text">General Inquiry</span>
-                      <span class="option-category">General</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <input type="hidden" id="service" name="service" />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell us about your needs..."
-                required></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-full">
-              Send Message <i class="fa-solid fa-paper-plane"></i>
-            </button>
-            <p class="form-note"><i class="fa-solid fa-lock"></i> Your information is confidential and never shared.</p>
-          </form>
+  <button type="submit" class="btn-primary btn-full">
+    Send Message <i class="fa-solid fa-paper-plane"></i>
+  </button>
+  <p class="form-note"><i class="fa-solid fa-lock"></i> Your information is confidential and never shared.</p>
+</form>
           <div class="form-success" id="formSuccess">
             <i class="fa-solid fa-circle-check"></i>
             <h3>Message Sent!</h3>

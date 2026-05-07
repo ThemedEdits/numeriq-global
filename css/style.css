@@ -378,14 +378,135 @@ input, select, textarea { font-family: inherit; }
 .contact-form-wrap { background: var(--bg-2); border: 1.5px solid var(--border); border-top: 2px solid var(--green); border-radius: var(--radius); padding: 2.5rem; }
 .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-.form-group { display: flex; flex-direction: column; gap: .4rem; }
-.form-group label { font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
-.form-group input, .form-group select, .form-group textarea { background: var(--white); border: 1.5px solid var(--border); border-radius: 8px; padding: .85rem 1rem; color: var(--navy); font-size: .9rem; outline: none; transition: border-color .25s, box-shadow .25s; -webkit-appearance: none; }
-.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(94,122,150,.45); }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); }
-.form-group select option { background: var(--white); color: var(--navy); }
-.form-group textarea { resize: vertical; min-height: 110px; }
-.form-note { font-size: .76rem; color: var(--text-muted); text-align: center; display: flex; align-items: center; justify-content: center; gap: .4rem; }
+
+/* Base form-group */
+.form-group { display: flex; flex-direction: column; gap: 0; }
+
+/* Floating label group */
+.form-group.floating { position: relative; }
+
+.form-group.floating input,
+.form-group.floating textarea {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 1.4rem 1rem 0.5rem;
+  color: var(--navy);
+  font-size: .9rem;
+  outline: none;
+  width: 100%;
+  transition: border-color .25s, box-shadow .25s;
+  -webkit-appearance: none;
+}
+.form-group.floating textarea {
+  resize: vertical;
+  min-height: 120px;
+  padding-top: 1.6rem;
+}
+
+/* Placeholder must be space so :not(:placeholder-shown) works */
+.form-group.floating input::placeholder,
+.form-group.floating textarea::placeholder { color: transparent; }
+
+.form-group.floating input:focus,
+.form-group.floating textarea:focus {
+  border-color: var(--green);
+}
+
+/* The floating label */
+.float-label {
+  position: absolute;
+  left: 1rem;
+  top: 35%;
+  transform: translateY(-50%);
+  font-size: .9rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: top .32s ease, font-size .32s ease, color .32s ease, transform .32s ease;
+  background: transparent;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+/* Textarea label starts near top */
+.form-group.floating textarea ~ .float-label {
+  top: 1.15rem;
+  transform: none;
+}
+
+/* Floated up state — on focus OR when input has content */
+.form-group.floating input:focus ~ .float-label,
+.form-group.floating input:not(:placeholder-shown) ~ .float-label {
+  top: .45rem;
+  transform: none;
+  font-size: .68rem;
+  color: var(--green);
+  letter-spacing: .04em;
+}
+.form-group.floating textarea:focus ~ .float-label,
+.form-group.floating textarea:not(:placeholder-shown) ~ .float-label {
+  top: .4rem;
+  font-size: .68rem;
+  color: var(--green);
+  letter-spacing: .04em;
+}
+
+/* Optional tag inside label */
+.float-label .optional { font-size: .75em; color: var(--text-muted); opacity: .7; }
+
+/* Error state */
+.form-group.floating input.input-error,
+.form-group.floating textarea.input-error { border-color: #e03131; box-shadow: 0 0 0 3px rgba(224,49,49,.1); }
+.form-group.floating input.input-error ~ .float-label,
+.form-group.floating textarea.input-error ~ .float-label { color: #e03131; }
+
+/* Field error message */
+.field-error {
+  font-size: .75rem;
+  color: #e03131;
+  min-height: 1rem;
+  padding: .2rem .2rem 0;
+  display: block;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.field-error.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Select label — sits above the trigger, not floating inside it */
+.float-label--select {
+  position: static;
+  display: block;
+  font-size: .68rem;
+  color: var(--text-muted);
+  letter-spacing: .04em;
+  margin-bottom: .85rem;
+  padding: 0 .2rem;
+  pointer-events: none;
+}
+
+/* Form-level toast error/success */
+.form-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: .9rem 1.1rem;
+  border-radius: 8px;
+  font-size: .85rem;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.form-toast.visible { opacity: 1; transform: none; pointer-events: auto; }
+.form-toast.toast-error { background: #fff5f5; border: 1.5px solid #ffc9c9; color: #c92a2a; }
+.form-toast.toast-success { background: #f0fdf4; border: 1.5px solid #b2f2bb; color: #2f9e44; }
+.form-toast i { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+
+.form-note { font-size: .76rem; color: var(--text-muted); text-align: center; display: flex; align-items: center; justify-content: center; gap: .4rem; margin-top: .25rem; }
 .form-success { display: none; text-align: center; padding: 3rem 2rem; flex-direction: column; align-items: center; gap: 1rem; }
 .form-success.show { display: flex; }
 .form-success i { font-size: 3rem; color: var(--green); }

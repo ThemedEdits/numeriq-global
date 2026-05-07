@@ -175,16 +175,102 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* ─── CONTACT FORM ──────────────────────── */
+/* ─── CONTACT FORM ──────────────────────── */
   const form        = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
 
   if (form) {
+
+    // --- helpers ---
+    const showFieldError = (input, msg) => {
+      const group = input.closest('.form-group');
+      input.classList.add('input-error');
+      const err = group.querySelector('.field-error');
+      if (err) { err.textContent = msg; err.classList.add('visible'); }
+    };
+    const clearFieldError = (input) => {
+      const group = input.closest('.form-group');
+      input.classList.remove('input-error');
+      const err = group.querySelector('.field-error');
+      if (err) { err.textContent = ''; err.classList.remove('visible'); }
+    };
+
+    // Show/hide form-level toast
+    let toastEl = form.querySelector('.form-toast');
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'form-toast';
+      form.insertBefore(toastEl, form.querySelector('button[type="submit"]'));
+    }
+    const showToast = (msg, type = 'error') => {
+      const icon = type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-check';
+      toastEl.className = `form-toast toast-${type} visible`;
+      toastEl.innerHTML = `<i class="fa-solid ${icon}"></i><span>${msg}</span>`;
+      setTimeout(() => toastEl.classList.remove('visible'), 5000);
+    };
+
+    // Clear errors on input
+    form.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('input', () => clearFieldError(field));
+    });
+
+    // --- validation ---
+    const validate = () => {
+      let valid = true;
+
+      const firstName = form.querySelector('[name="firstName"]');
+      const lastName  = form.querySelector('[name="lastName"]');
+      const email     = form.querySelector('[name="email"]');
+      const message   = form.querySelector('[name="message"]');
+      const service   = form.querySelector('[name="service"]');
+
+      if (!firstName.value.trim()) {
+        showFieldError(firstName, 'First name is required.'); valid = false;
+      }
+      if (!lastName.value.trim()) {
+        showFieldError(lastName, 'Last name is required.'); valid = false;
+      }
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim()) {
+        showFieldError(email, 'Email address is required.'); valid = false;
+      } else if (!emailRe.test(email.value.trim())) {
+        showFieldError(email, 'Please enter a valid email address.'); valid = false;
+      }
+      if (!service.value) {
+        // highlight the select trigger
+        const wrapper = form.querySelector('.custom-select-wrapper');
+        const err = wrapper.querySelector('.field-error');
+        const trigger = wrapper.querySelector('.select-trigger');
+        if (trigger) trigger.style.borderColor = '#e03131';
+        if (err) { err.textContent = 'Please select a service.'; err.classList.add('visible'); }
+        valid = false;
+      }
+      if (!message.value.trim()) {
+        showFieldError(message, 'Please tell us about your needs.'); valid = false;
+      }
+
+      return valid;
+    };
+
+    // --- submit ---
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // clear any previous toast
+      toastEl.classList.remove('visible');
+
+      if (!validate()) {
+        showToast('Please fix the errors above before sending.', 'error');
+        // scroll to first error
+        const firstErr = form.querySelector('.input-error, .select-trigger[style*="border"]');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
       setTimeout(() => {
         form.style.display = 'none';
         formSuccess.classList.add('show');
