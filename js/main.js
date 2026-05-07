@@ -243,3 +243,65 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+
+  /* ─── CUSTOM SELECT DROPDOWN ─────────────── */
+  const customSelect = document.getElementById('customSelect');
+  const selectTrigger = customSelect.querySelector('.select-trigger');
+  const selectValue = customSelect.querySelector('.select-value');
+  const selectIcon = customSelect.querySelector('.select-icon');
+  const options = customSelect.querySelectorAll('.dropdown-option');
+  const hiddenInput = document.getElementById('service');
+  
+  // Toggle dropdown on trigger click
+  selectTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    customSelect.classList.toggle('open');
+    
+    // Change icon animation
+    if (customSelect.classList.contains('open')) {
+      selectIcon.style.transform = 'rotate(180deg)';
+    } else {
+      selectIcon.style.transform = 'rotate(0deg)';
+    }
+  });
+  
+  // Handle option selection
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const value = option.getAttribute('data-value');
+      const text = option.querySelector('.option-text').textContent;
+      
+      // Update display
+      selectValue.textContent = text;
+      selectValue.classList.remove('placeholder');
+      
+      // Update hidden input
+      hiddenInput.value = value;
+      
+      // Update selected class
+      options.forEach(opt => opt.classList.remove('selected'));
+      option.classList.add('selected');
+      
+      // Close dropdown
+      customSelect.classList.remove('open');
+      selectIcon.style.transform = 'rotate(0deg)';
+    });
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!customSelect.contains(e.target)) {
+      customSelect.classList.remove('open');
+      selectIcon.style.transform = 'rotate(0deg)';
+    }
+  });
+  
+  // Keyboard navigation
+  customSelect.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && customSelect.classList.contains('open')) {
+      customSelect.classList.remove('open');
+      selectIcon.style.transform = 'rotate(0deg)';
+    }
+  });

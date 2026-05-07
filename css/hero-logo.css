@@ -16,6 +16,7 @@
   gap: 4rem;
   min-height: 100dvh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .hero-content {
