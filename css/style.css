@@ -222,7 +222,7 @@ input, select, textarea { font-family: inherit; }
   background: var(--white);
   z-index: 1050;
   /* Circle starts at 0 radius anchored to the top-right (hamburger position) */
-  clip-path: circle(0px at calc(100% - 28px) 28px);
+  clip-path: circle(0px at calc(100% - 40px) 35px);
   transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
   pointer-events: none;
 }
