@@ -191,14 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 
-  /* ─── HERO PARALLAX ─────────────────────── */
-  const heroImg = document.querySelector('.hero-img');
-  if (heroImg && window.innerWidth > 768) {
-    window.addEventListener('scroll', () => {
-      heroImg.style.transform = `scale(1) translateY(${window.scrollY * 0.22}px)`;
-    }, { passive: true });
-  }
-
 
   /* ─── CUSTOM CURSOR (desktop only) ─────── */
   if (window.innerWidth > 1024 && !('ontouchstart' in window)) {
