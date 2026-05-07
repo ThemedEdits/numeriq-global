@@ -4,16 +4,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Numeriq Global | Financial Clarity. Strategic Growth." />
   <meta name="description"
     content="Numeriq Global – Elite financial advisory, fractional CFO, bookkeeping, and accounting services for modern businesses worldwide." />
-  <title>Numeriq Global | Financial Clarity. Strategic Growth.</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="keywords"
+    content="financial advisory, fractional CFO, bookkeeping, accounting services, business finance, financial clarity, strategic growth, CFO services, financial planning" />
+  <meta name="author" content="Numeriq Global" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://numeriq-global.vercel.app/" />
+  <meta property="og:title" content="Numeriq Global | Financial Clarity. Strategic Growth." />
+  <meta property="og:description"
+    content="Numeriq Global – Elite financial advisory, fractional CFO, bookkeeping, and accounting services for modern businesses worldwide." />
+  <meta property="og:image" content="https://numeriq-global.vercel.app/images/preview-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Numeriq Global" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://numeriq-global.vercel.app/" />
+  <meta name="twitter:title" content="Numeriq Global | Financial Clarity. Strategic Growth." />
+  <meta name="twitter:description"
+    content="Numeriq Global – Elite financial advisory, fractional CFO, bookkeeping, and accounting services for modern businesses worldwide." />
+  <meta name="twitter:image" content="https://numeriq-global.vercel.app/images/preview-image.jpg" />
+  
+  <!-- WhatsApp / Social Media Preview Meta Tags (same as OG) -->
+  <meta property="og:image:alt" content="Numeriq Global - Financial Clarity. Strategic Growth. Logo and brand preview" />
+  <meta name="twitter:image:alt" content="Numeriq Global - Financial Clarity. Strategic Growth. Logo and brand preview" />
+  
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="/images/logo-light.svg" />
+  <link rel="shortcut icon" href="/images/logo-light.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/images/logo-light.svg" />
+  
+  <!-- Additional SEO and Verification -->
+  <link rel="canonical" href="https://numeriq-global.vercel.app/" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#0a192f" />
+  <meta name="msapplication-TileColor" content="#0a192f" />
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/hero-logo.css" />
+  
+  <title>Numeriq Global | Financial Clarity. Strategic Growth.</title>
 </head>
 
 <body>
@@ -35,7 +89,10 @@
   <header id="navbar">
     <nav class="nav-container">
       <a href="#home" class="nav-logo">
-        <img src="images/logo.svg" alt="Numeriq Global Logo" class="nav-logo-img" />
+        <div class="nav-logo-wrap">
+          <img src="images/logo-light.svg" alt="" class="nav-logo-img logo-light" aria-hidden="true" />
+          <img src="images/logo-dark.svg"  alt="Numeriq Global" class="nav-logo-img logo-dark" />
+        </div>
         <span class="logo-text">Numeriq <em>Global</em></span>
       </a>
 
@@ -68,40 +125,42 @@
       <div class="hero-overlay"></div>
     </div>
 
-    <!-- All text content sits here, padded away from the bottom scroll indicator -->
-    <div class="hero-content">
-      <!-- <div class="hero-badge reveal">
-        <span class="badge-dot"></span> Trusted Financial Expertise
-      </div> -->
-      <h1 class="hero-title reveal">
-        Financial Clarity.<br /><em>Strategic Growth.</em>
-      </h1>
-      <p class="hero-sub reveal">
-        From fractional CFO advisory to full-spectrum accounting operations — Numeriq Global delivers precision
-        financial solutions for ambitious businesses.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="#services" class="btn-primary">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#contact" class="btn-ghost">Book a Consultation</a>
+    <!-- Two-column hero inner -->
+    <div class="hero-inner">
+
+      <!-- LEFT: text content -->
+      <div class="hero-content">
+        <h1 class="hero-title reveal">
+          Financial Clarity.<br /><em>Strategic Growth.</em>
+        </h1>
+        <p class="hero-sub reveal">
+          From fractional CFO advisory to full spectrum accounting operations, Numeriq Global delivers precision
+          financial solutions for ambitious businesses.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#services" class="btn-primary">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#contact" class="btn-ghost">Book a Consultation</a>
+        </div>
       </div>
 
-      <!-- <div class="hero-stats reveal">
-        <div class="stat">
-          <span class="stat-num" data-target="150">0</span><span>+</span>
-          <p>Clients Served</p>
+      <!-- RIGHT: decorative logo -->
+      <div class="hero-logo-side">
+        <div class="hero-logo-wrap">
+          <div class="hero-logo-glow"></div>
+          <img src="images/hero logo.svg" alt="" class="hero-logo-img" aria-hidden="true" />
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num" data-target="12">0</span><span>+</span>
-          <p>Years Experience</p>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num" data-target="98">0</span><span>%</span>
-          <p>Retention Rate</p>
-        </div>
-      </div> -->
+      </div>
+
+    </div><!-- /.hero-inner -->
+
+    <!-- Scroll indicator — sibling of hero-inner, pinned to bottom -->
+    <div class="scroll-indicator">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-box">
+        <div class="scroll-dot"></div>
+      </div>
     </div>
+
   </section>
 
   <!-- ═══════════════════════════════════════
@@ -387,7 +446,7 @@
           </div>
           <div class="process-step reveal" style="animation-delay:.48s">
             <div class="step-num">05</div>
-            <div class="step-icon"><i class="fa-solid fa-chart-line-up"></i></div>
+            <div class="step-icon"><i class="fas fa-chart-line"></i></div>
             <h4>Ongoing Partnership</h4>
             <p>Regular check-ins, adaptive reporting, and proactive advisory as your business grows and evolves.</p>
           </div>
@@ -484,7 +543,7 @@
             </div>
             <div class="contact-item reveal-left" style="animation-delay:.2s">
               <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div><strong>Location</strong><span>Karachi, Pakistan — Serving Globally</span></div>
+              <div><strong>Location</strong><span>Karachi, Pakistan. Serving Globally</span></div>
             </div>
             <div class="contact-item reveal-left" style="animation-delay:.3s">
               <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
@@ -574,7 +633,9 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="#home" class="nav-logo">
-              <img src="images/logo.svg" alt="Numeriq Global" class="nav-logo-img" />
+              <div class="nav-logo-wrap">
+                <img src="images/logo-dark.svg" alt="Numeriq Global" class="nav-logo-img logo-dark" style="opacity:1;position:relative;" />
+              </div>
               <span class="logo-text">Numeriq <em>Global</em></span>
             </a>
             <p>Financial clarity for ambitious businesses. Precision accounting. Strategic advisory. Global reach.</p>
@@ -624,7 +685,7 @@
             <h5 style="margin-top:1.5rem">Contact</h5>
             <ul>
               <li><a href="mailto:numeriqglobal@gmail.com">numeriqglobal@gmail.com</a></li>
-              <li><a href="tel:+92300000000">+44 7376 984098</a></li>
+              <li><a href="tel:+447376984098">+44 7376 984098</a></li>
               <li><span>Karachi, Pakistan</span></li>
             </ul>
           </div>

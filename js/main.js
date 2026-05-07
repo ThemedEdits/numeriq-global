@@ -10,10 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       preloader.classList.add('hidden');
       document.body.style.overflow = '';
-      // Trigger hero animations after preloader hides
+      // Trigger hero text animations after preloader hides
       document.querySelectorAll('.hero .reveal').forEach((el, i) => {
         setTimeout(() => el.classList.add('revealed'), i * 130);
       });
+      // Trigger hero logo slide-in
+      const heroLogo = document.querySelector('.hero-logo-img');
+      if (heroLogo) {
+        setTimeout(() => heroLogo.classList.add('logo-revealed'), 300);
+      }
     }, 1400);
   });
   document.body.style.overflow = 'hidden';
@@ -43,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
 
 
-  /* ─── HAMBURGER MENU ────────────────────── */
-  const hamburger = document.getElementById('hamburger');
-  const navLinksEl = document.getElementById('navLinks');
+  /* ─── HAMBURGER MENU (circle-expand) ────── */
+  const hamburger    = document.getElementById('hamburger');
+  const navLinksEl   = document.getElementById('navLinks');
   const mobileOverlay = document.getElementById('mobileOverlay');
 
   const closeMenu = () => {
@@ -58,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const openMenu = () => {
     hamburger.classList.add('open');
-    navLinksEl.classList.add('open');
     mobileOverlay.classList.add('active');
+    navLinksEl.classList.add('open');
     document.body.style.overflow = 'hidden';
     hamburger.setAttribute('aria-expanded', 'true');
   };
@@ -68,8 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.contains('open') ? closeMenu() : openMenu();
   });
 
-  mobileOverlay.addEventListener('click', closeMenu);
-  document.querySelectorAll('.nav-link, .nav-cta-btn').forEach(l => l.addEventListener('click', closeMenu));
+  // Clicking the overlay background closes menu
+  mobileOverlay.addEventListener('click', (e) => {
+    // Only close if click is on the overlay itself, not the nav links
+    if (!navLinksEl.contains(e.target)) closeMenu();
+  });
+
+  document.querySelectorAll('.nav-link, .nav-cta-btn').forEach(l => {
+    l.addEventListener('click', closeMenu);
+  });
+
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
 
@@ -111,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─── SERVICES TABS ─────────────────────── */
-  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabBtns     = document.querySelectorAll('.tab-btn');
   const serviceCards = document.querySelectorAll('.service-card');
 
   // Init: hide operations tab cards
@@ -142,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - (navbar.offsetHeight + 16);
+        const top = target.getBoundingClientRect().top + window.scrollY - navbar.offsetHeight;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
@@ -156,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─── CONTACT FORM ──────────────────────── */
-  const form = document.getElementById('contactForm');
+  const form        = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
 
   if (form) {
