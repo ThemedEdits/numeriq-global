@@ -331,51 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-
-
-  /* ─── CUSTOM CURSOR (desktop only) ─────── */
-  if (window.innerWidth > 1024 && !('ontouchstart' in window)) {
-    const cursor = document.createElement('div');
-    cursor.style.cssText = `
-      position:fixed;width:8px;height:8px;border-radius:50%;
-      background:#00A86B;pointer-events:none;z-index:9999;
-      transition:transform .15s ease,opacity .15s ease;
-      transform:translate(-50%,-50%);opacity:0;
-    `;
-    const ring = document.createElement('div');
-    ring.style.cssText = `
-      position:fixed;width:32px;height:32px;border-radius:50%;
-      border:1px solid rgba(0,168,107,.45);pointer-events:none;z-index:9998;
-      transition:transform .35s ease,opacity .2s ease,width .25s,height .25s;
-      transform:translate(-50%,-50%);opacity:0;
-    `;
-    document.body.appendChild(cursor);
-    document.body.appendChild(ring);
-
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = ring.style.left = e.clientX + 'px';
-      cursor.style.top = ring.style.top = e.clientY + 'px';
-      cursor.style.opacity = ring.style.opacity = '1';
-    });
-
-    document.querySelectorAll('a, button, .service-card, .tab-btn').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'translate(-50%,-50%) scale(1.8)';
-        ring.style.width = ring.style.height = '48px';
-        ring.style.borderColor = 'rgba(0,168,107,.7)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-        ring.style.width = ring.style.height = '32px';
-        ring.style.borderColor = 'rgba(0,168,107,.45)';
-      });
-    });
-
-    document.addEventListener('mouseleave', () => {
-      cursor.style.opacity = ring.style.opacity = '0';
-    });
-  }
-
 });
 
 
