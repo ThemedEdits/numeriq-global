@@ -1010,3 +1010,161 @@ input, select, textarea { font-family: inherit; }
 
 
 
+/* ─── TEAM / FOUNDERS SECTION ───────────── */
+.team { background: var(--bg); }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.founder-card {
+  background: var(--bg-2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.founder-card:hover {
+  border-color: var(--border-g);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+/* Image area */
+.founder-img-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+.founder-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform .6s ease;
+}
+.founder-card:hover .founder-img { transform: scale(1.04); }
+
+/* Credential badges top-right */
+.founder-flag {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  align-items: flex-end;
+}
+.founder-flag span {
+  background: var(--navy);
+  color: var(--green);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .28rem .65rem;
+  border-radius: 4px;
+}
+
+/* Green top accent line */
+.founder-card::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--green-light));
+  flex-shrink: 0;
+}
+
+/* Body */
+.founder-body {
+  padding: 1.75rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.founder-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: .2rem;
+}
+.founder-role {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+/* Stats row */
+.founder-exp {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.founder-stat { text-align: left; }
+.founder-stat strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1;
+}
+.founder-stat span {
+  font-size: .75rem;
+  color: var(--text-muted);
+  letter-spacing: .04em;
+}
+.founder-stat-divider {
+  width: 1px; height: 36px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* Bio */
+.founder-bio {
+  font-size: .9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* Expertise tags */
+.founder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: auto;
+}
+.founder-tags span {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: var(--navy);
+  background: var(--green-pale);
+  border: 1px solid var(--border-g);
+  padding: .35rem .8rem;
+  border-radius: 100px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: 1fr; max-width: 580px; margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  .founder-img-wrap { height: 220px; }
+  .founder-body { padding: 1.25rem; gap: 1rem; }
+  .founder-name { font-size: 1.3rem; }
+  .founder-exp { gap: 1rem; padding: .85rem 1rem; }
+  .founder-stat strong { font-size: 1.25rem; }
+}
