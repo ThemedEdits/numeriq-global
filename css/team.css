@@ -1,0 +1,463 @@
+/* ══════════════════════════════════════════════
+   TEAM / FOUNDERS SECTION
+   Layout: blob photo left · bio right (alternates)
+   Reference: Talha Farooqi card style
+══════════════════════════════════════════════ */
+
+.team {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ── Each founder row ── */
+.founder-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 3rem 0;
+}
+
+/* Reverse layout for second founder */
+.founder-row--reverse {
+  direction: rtl;
+}
+
+.founder-row--reverse>* {
+  direction: ltr;
+}
+
+/* Divider between founders */
+.founder-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-g), transparent);
+  margin: 1rem 0;
+}
+
+/* ══ LEFT: VISUAL SIDE ══════════════════════ */
+.founder-visual {
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.cursive-arrow {
+  position: absolute;
+  width: 60px; /* adjust */
+  height: auto;
+
+  top: 96%;
+  left: 104%;
+
+  transform: translateX(-50%);
+}
+
+/* Cursive name above the blob */
+.founder-cursive {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  /* font-style: italic; */
+  color: var(--navy);
+  white-space: nowrap;
+  letter-spacing: .02em;
+  z-index: 4;
+}
+
+/* ── Blob + photo container ── */
+.founder-blob-wrap {
+  position: relative;
+  width: 380px;
+  height: 420px;
+  flex-shrink: 0;
+}
+
+/* The organic blob shape */
+.founder-blob {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--green) 0%, #007a4d 100%);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  z-index: 1;
+}
+
+/* Slightly different shape for second founder */
+.founder-blob--2 {
+  border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
+}
+
+/* Person photo — sits on top of blob, bottom-aligned */
+.founder-photo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 105%;
+  object-fit: cover;
+  object-position: top;
+  z-index: 2;
+  /* Remove any background from transparent PNGs */
+  filter: drop-shadow(0 8px 24px rgba(10, 37, 64, .18));
+}
+
+
+/* ── Dot grid decorations ── */
+.dot-grid {
+  position: absolute;
+  width: 70px;
+  height: 130px;
+  background-image: radial-gradient(circle, var(--navy) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  opacity: .48;
+  z-index: 0;
+}
+
+.dot-grid--tr {
+  top: 3.5rem;
+  right: .5rem;
+}
+
+.dot-grid--bl {
+  bottom: 1rem;
+  left: .5rem;
+}
+
+/* ── Floating credential badges ── */
+.f-badge {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  box-shadow: 0 6px 24px rgba(10, 37, 64, .10);
+  z-index: 5;
+  min-width: 140px;
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+
+.f-badge--tl {
+  top: 3.5rem;
+  left: 2rem;
+  animation-delay: 0s;
+}
+
+.f-badge--bl {
+  bottom: 11rem;
+  left: -3rem;
+  animation-delay: 1.4s;
+}
+
+.f-badge--br {
+  bottom: 2rem;
+  right: -.5rem;
+  animation-delay: 0.7s;
+}
+
+@keyframes badgeFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.f-badge-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.f-badge strong {
+  display: block;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.f-badge span {
+  font-size: .68rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ══ RIGHT: CONTENT SIDE ════════════════════ */
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.founder-role-tag {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-left: 3px solid var(--green);
+  padding-left: .85rem;
+  line-height: 1.4;
+}
+
+.founder-bio-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* Skill checklist */
+.founder-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem .75rem;
+}
+
+.founder-skills span {
+  display: flex;
+  
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--green-pale);
+  border: 1px solid var(--border-g);
+   padding: .35rem .8rem;
+  border-radius: 100px;
+}
+
+.founder-skills span i {
+  color: var(--green);
+  font-size: .7rem;
+  flex-shrink: 0;
+}
+
+/* Arrow decoration (ref image shows a curved arrow — CSS only) */
+.founder-content::before {
+  content: '';
+  display: none;
+  /* decorative only on large screens */
+}
+
+/* ══ RESPONSIVE ══════════════════════════════ */
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .founder-row {
+    gap: 2.5rem;
+  }
+
+  .founder-visual {
+    height: 460px;
+  }
+
+  .founder-blob-wrap {
+    width: 280px;
+    height: 370px;
+  }
+
+  .founder-cursive {
+    font-size: 1.7rem;
+  }
+
+  .f-badge--tl {
+    left: 0;
+  }
+
+  .f-badge--bl {
+    left: 0;
+  }
+
+  .f-badge--br {
+    right: 0;
+  }
+}
+
+/* Tablet portrait — stack vertically */
+@media (max-width: 768px) {
+  
+.cursive-arrow{
+  width: 45px;
+  top:55%;
+}
+  .founder-row,
+  .founder-row--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .founder-visual {
+    height: 400px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .founder-blob-wrap {
+    width: 250px;
+    height: 330px;
+  }
+
+  .founder-cursive {
+    font-size: 1.65rem;
+    top: -4rem;
+  }
+
+  .f-badge {
+    min-width: 120px;
+    padding: .5rem .75rem;
+  }
+
+  .f-badge--tl {
+    left: .5rem;
+    top: 3rem;
+  }
+
+  .f-badge--bl {
+    left: .5rem;
+    bottom: 2rem;
+  }
+
+  .f-badge--br {
+    right: .5rem;
+    bottom: 2rem;
+  }
+
+  .f-badge strong {
+    font-size: .72rem;
+  }
+
+  .f-badge span {
+    font-size: .64rem;
+  }
+
+  .founder-content {
+    gap: 1.25rem;
+  }
+
+  .founder-bio-text {
+    font-size: .93rem;
+  }
+
+  .founder-skills {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .founder-visual {
+    height: 340px;
+    max-width: 100%;
+  }
+
+  .founder-blob-wrap {
+    width: 210px;
+    height: 285px;
+  }
+
+
+
+  .dot-grid {
+    width: 60px;
+    height: 60px;
+  }
+
+  .f-badge {
+    min-width: 105px;
+    gap: .4rem;
+    padding: .45rem .65rem;
+  }
+
+  .f-badge-icon {
+    width: 26px;
+    height: 26px;
+    font-size: .75rem;
+  }
+
+  .f-badge strong {
+    font-size: .68rem;
+  }
+
+  .f-badge span {
+    font-size: .6rem;
+  }
+
+  .f-badge--tl {
+    left: 1.5rem;
+    top: -1rem;
+  }
+
+  .f-badge--bl {
+    left: 0;
+    bottom: 5rem;
+  }
+
+  .f-badge--br {
+    right: 0;
+    bottom: 1.5rem;
+  }
+
+  .founder-role-tag {
+    font-size: .7rem;
+  }
+
+  .founder-bio-text {
+    font-size: .88rem;
+    line-height: 1.8;
+  }
+
+  .founder-skills span {
+    font-size: .82rem;
+  }
+}
+
+/* Very small */
+@media (max-width: 360px) {
+  .founder-visual {
+    height: 300px;
+  }
+
+  .founder-blob-wrap {
+    width: 180px;
+    height: 245px;
+  }
+
+  .founder-cursive {
+    font-size: 1.15rem;
+  }
+
+  .f-badge {
+    min-width: 95px;
+  }
+
+  .f-badge--bl,
+  .f-badge--br {
+    bottom: 1rem;
+  }
+}
