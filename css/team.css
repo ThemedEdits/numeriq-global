@@ -45,7 +45,8 @@
 
 .cursive-arrow {
   position: absolute;
-  width: 60px; /* adjust */
+  width: 60px;
+  /* adjust */
   height: auto;
 
   top: 96%;
@@ -83,14 +84,14 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, var(--green) 0%, #007a4d 100%);
-  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  aspect-ratio: 1;
+  clip-path: shape(from 26.69% 75.30%,curve to 11.16% 60.29% with 17.16% 70.84%,smooth to 7.80% 37.00%,smooth to 23.08% 21.25%,smooth to 45.80% 14.44%,smooth to 67.63% 13.57%,smooth to 88.29% 26.46%,smooth to 90.18% 48.19%,smooth to 82.66% 73.74%,smooth to 68.97% 89.71%,smooth to 45.99% 85.82%,smooth to 26.69% 75.30%);
+
+  transform: translate(0, 18px) scale(1.3);
   z-index: 1;
 }
 
-/* Slightly different shape for second founder */
-.founder-blob--2 {
-  border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
-}
+
 
 /* Person photo — sits on top of blob, bottom-aligned */
 .founder-photo {
@@ -236,7 +237,7 @@
 
 .founder-skills span {
   display: flex;
-  
+
   align-items: center;
   gap: .5rem;
   font-size: .85rem;
@@ -244,7 +245,7 @@
   color: var(--navy);
   background: var(--green-pale);
   border: 1px solid var(--border-g);
-   padding: .35rem .8rem;
+  padding: .35rem .8rem;
   border-radius: 100px;
 }
 
@@ -297,17 +298,22 @@
 
 /* Tablet portrait — stack vertically */
 @media (max-width: 768px) {
-  
-.cursive-arrow{
-  width: 45px;
-  top:55%;
-}
+
+  .founder-row-mt {
+    margin-top: 3rem;
+  }
+
+  .cursive-arrow {
+    width: 45px;
+    top: 55%;
+  }
+
   .founder-row,
   .founder-row--reverse {
     grid-template-columns: 1fr;
     direction: ltr;
     gap: 2rem;
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
 
   .founder-visual {
@@ -385,7 +391,8 @@
 
   .dot-grid {
     width: 60px;
-    height: 60px;
+    height: 80px;
+    bottom: 6rem;
   }
 
   .f-badge {
@@ -439,17 +446,29 @@
 
 /* Very small */
 @media (max-width: 360px) {
+
+  .founder-photo {
+    height: 115%;
+  }
+
   .founder-visual {
     height: 300px;
   }
 
+  .cursive-arrow {
+    width: 35px;
+    top: 55%;
+    left: 95%;
+  }
+
   .founder-blob-wrap {
-    width: 180px;
+    width: 220px;
     height: 245px;
   }
 
   .founder-cursive {
-    font-size: 1.15rem;
+    font-size: 1.55rem;
+    top: -5rem;
   }
 
   .f-badge {

@@ -1822,7 +1822,7 @@ textarea {
 
   /* Sections */
   .section {
-    padding: 5rem 0;
+    padding: 3rem 0;
   }
 
   /* ── Hamburger visible ── */
@@ -2051,6 +2051,8 @@ textarea {
 /* ── Mobile (≤ 480px) ────────────────────── */
 @media (max-width: 480px) {
 
+
+
   html {
     font-size: 15px;
   }
@@ -2205,6 +2207,10 @@ textarea {
 
 /* ── Very small (≤ 360px) ────────────────── */
 @media (max-width: 360px) {
+
+  .f-badge--l{
+    bottom: 4rem;
+  }
   html {
     font-size: 14px;
   }
