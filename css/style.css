@@ -1424,7 +1424,7 @@ textarea {
   font-size: .9rem;
   outline: none;
   width: 100%;
-  transition: border-color .25s, box-shadow .25s;
+  transition: all .45s ease ;
   -webkit-appearance: none;
 }
 
@@ -1443,6 +1443,7 @@ textarea {
 .form-group.floating input:focus,
 .form-group.floating textarea:focus {
   border-color: var(--green);
+    background: var(--bg-2);
 }
 
 /* The floating label */
@@ -1454,7 +1455,7 @@ textarea {
   font-size: .9rem;
   color: var(--text-muted);
   pointer-events: none;
-  transition: top .32s ease, font-size .32s ease, color .32s ease, transform .32s ease;
+  transition: all 0.45s ease;
   background: transparent;
   padding: 0 2px;
   white-space: nowrap;
@@ -1469,10 +1470,12 @@ textarea {
 /* Floated up state — on focus OR when input has content */
 .form-group.floating input:focus~.float-label,
 .form-group.floating input:not(:placeholder-shown)~.float-label {
-  top: .45rem;
+  top: -0.5rem;
   transform: none;
   font-size: .68rem;
   color: var(--green);
+  background: var(--bg-2);
+  padding: 0 5px;
   letter-spacing: .04em;
 }
 
@@ -1480,6 +1483,7 @@ textarea {
 .form-group.floating textarea:not(:placeholder-shown)~.float-label {
   top: .4rem;
   font-size: .68rem;
+  
   color: var(--green);
   letter-spacing: .04em;
 }
