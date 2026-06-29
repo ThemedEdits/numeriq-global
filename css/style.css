@@ -1719,7 +1719,7 @@ textarea {
 /* ─── BACK TO TOP ───────────────────────── */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: 5rem;
   right: 2rem;
   width: 46px;
   height: 46px;
