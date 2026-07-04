@@ -14,6 +14,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="preload" as="image" href="/images/heroimg.webp">
+
   <!-- Primary Meta Tags -->
   <meta name="title" content="Numeriq Global | Financial Clarity. Strategic Growth." />
   <meta name="description"
@@ -31,7 +33,7 @@
   <meta property="og:title" content="Numeriq Global | Financial Clarity. Strategic Growth." />
   <meta property="og:description"
     content="Numeriq Global – Elite financial advisory, fractional CFO, bookkeeping, and accounting services for modern businesses worldwide." />
-  <meta property="og:image" content="https://numeriq-global.vercel.app/images/preview-image.jpg" />
+  <meta property="og:image" content="https://numeriq-global.vercel.app/images/preview-image.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Numeriq Global" />
@@ -43,7 +45,7 @@
   <meta name="twitter:title" content="Numeriq Global | Financial Clarity. Strategic Growth." />
   <meta name="twitter:description"
     content="Numeriq Global – Elite financial advisory, fractional CFO, bookkeeping, and accounting services for modern businesses worldwide." />
-  <meta name="twitter:image" content="https://numeriq-global.vercel.app/images/preview-image.jpg" />
+  <meta name="twitter:image" content="https://numeriq-global.vercel.app/images/preview-image.webp" />
 
   <!-- WhatsApp / Social Media Preview Meta Tags (same as OG) -->
   <meta property="og:image:alt"
@@ -164,7 +166,7 @@
       <div class="hero-logo-side">
         <div class="hero-logo-wrap">
           <div class="hero-logo-glow"></div>
-          <img src="images/heroimg.png" alt="" class="hero-logo-img" aria-hidden="true" />
+          <img src="images/heroimg.webp" alt="" class="hero-logo-img" aria-hidden="true" />
         </div>
       </div>
 
@@ -189,7 +191,7 @@
         <div class="about-images">
           <div class="img-stack">
             <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=80"
-              alt="Team at work" class="img-main reveal-left" />
+              loading="lazy" alt="Accounting Team" class="img-main reveal-left" />
             <!-- <div class="img-badge reveal-left" style="animation-delay:.35s">
               <i class="fa-solid fa-shield-halved"></i>
               <div>
@@ -258,7 +260,7 @@
           <!-- Blob + photo -->
           <div class="founder-blob-wrap reveal-right">
             <div class="founder-blob"></div>
-            <img src="images/m_mateen.png" alt="Muhammad Mateen" class="founder-photo" />
+            <img src="images/m_mateen.webp" alt="Muhammad Mateen" loading="lazy" class="founder-photo" />
           </div>
 
           <!-- Floating credential badges -->
@@ -321,7 +323,7 @@
 
           <div class="founder-blob-wrap reveal-left">
             <div class="founder-blob founder-blob--2"></div>
-            <img src="images/talha_farooqi.png" alt="Muhammad Talha" class="founder-photo" />
+            <img src="images/talha_farooqi.webp" alt="Muhammad Talha" loading="lazy" class="founder-photo" />
           </div>
 
           <div class="f-badge f-badge--tl">
@@ -552,7 +554,7 @@
 
         <div class="why-visual reveal-right">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&auto=format&fit=crop&q=80"
-            alt="Financial Data" class="why-img" />
+            alt="Financial Data" loading="lazy" class="why-img" />
           <div class="why-card-float">
             <i class="fa-solid fa-star"></i>
             <div>
@@ -667,7 +669,7 @@
   <section class="cta-banner">
     <div class="cta-bg">
       <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&auto=format&fit=crop&q=80"
-        alt="CTA_IMG" />
+        alt="CTA_IMG" loading="lazy" />
       <div class="cta-overlay"></div>
     </div>
     <div class="container">
@@ -925,7 +927,7 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>
