@@ -77,9 +77,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/hero-logo.css" />
-  <link rel="stylesheet" href="css/team.css" />
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="preload" href="/css/hero-logo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/hero-logo.css">
+  </noscript>
+  <link rel="preload" href="/css/team.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/team.css">
+  </noscript>
 
   <title>Numeriq Global | Accounting, Bookkeeping & Fractional CFO Services</title>
 </head>
@@ -92,7 +100,7 @@
   ═══════════════════════════════════════ -->
   <div id="preloader">
     <div class="pre-inner">
-      <img src="images/logo.svg" alt="Numeriq Global" class="pre-logo-img" />
+      <img width="68" height="68" src="images/logo.svg" alt="Numeriq Global" class="pre-logo-img" />
       <div class="pre-bar"></div>
       <p class="pre-text">NUMERIQ GLOBAL</p>
     </div>
@@ -145,15 +153,15 @@
     <div class="hero-inner">
 
       <!-- LEFT: text content -->
-      <div class="hero-content">
-        <h1 class="hero-title reveal">
+      <div class="hero-content reveal">
+        <h1 class="hero-title">
           Financial Clarity.<br /><em>Strategic Growth.</em>
         </h1>
-        <p class="hero-sub reveal">
+        <p class="hero-sub">
           From fractional CFO advisory to full spectrum accounting operations, Numeriq Global delivers precision
           financial solutions for ambitious businesses.
         </p>
-        <div class="hero-actions reveal">
+        <div class="hero-actions">
           <a href="#services" class="btn-primary">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
           <a href="https://wa.me/447376984098?text=Hi%20there!%20I%20found%20your%20website%20and%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20schedule%20a%20free%20consultation.%20Could%20you%20please%20share%20your%20availability%3F"
             class="btn-ghost" target="_blank" rel="noopener noreferrer">
@@ -166,7 +174,8 @@
       <div class="hero-logo-side">
         <div class="hero-logo-wrap">
           <div class="hero-logo-glow"></div>
-          <img src="images/heroimg.webp" alt="" class="hero-logo-img" aria-hidden="true" />
+          <img fetchpriority="high" decoding="async" loading="eager" src="images/heroimg.webp" alt=""
+            class="hero-logo-img" aria-hidden="true" />
         </div>
       </div>
 
