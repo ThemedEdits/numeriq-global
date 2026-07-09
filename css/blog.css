@@ -103,7 +103,6 @@
 .filter-tab.active {
   background: var(--navy);
   color: var(--white);
-  font-weight: 600;
 }
 
 /* Search */
@@ -512,8 +511,8 @@
   }
 
   .filter-tab {
-    font-size: .78rem;
-    padding: .4rem .75rem;
+    font-size: .9rem;
+    padding: .55rem .9rem;
   }
 
   .blog-search input {
@@ -548,6 +547,7 @@
   .blog-search input {
     flex: 1;
     width: auto;
+    height: 40px;
   }
 
   .blog-card-img {
@@ -561,10 +561,6 @@
 }
 
 @media (max-width: 360px) {
-  .filter-tab {
-    font-size: .74rem;
-    padding: .35rem .6rem;
-  }
 
   .blog-card-body {
     padding: 1.1rem;
