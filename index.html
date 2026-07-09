@@ -126,6 +126,7 @@
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#why-us" class="nav-link">Why Us</a></li>
         <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="/Blog/." class="nav-link">Blog</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li><a href="#contact" class="nav-cta-btn">Get Started</a></li>
       </ul>
@@ -859,7 +860,7 @@
               <span class="logo-text">Numeriq <em>Global</em></span>
             </a>
             <p>Financial clarity for ambitious businesses. Precision accounting. Strategic advisory. Global reach.</p>
-            <div class="social-links reveal-left" style="animation-delay:.4s">
+            <div class="social-links">
               <!-- Facebook -->
               <a href="https://www.facebook.com/profile.php?id=61572033266331" target="_blank" rel="noopener noreferrer"
                 aria-label="Facebook">
@@ -907,6 +908,7 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="#why-us">Why Numeriq</a></li>
               <li><a href="#process">Our Process</a></li>
+              <li><a href="/Blog/.">Blog</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
             <h5 style="margin-top:1.5rem">Contact</h5>
@@ -939,14 +941,93 @@
   <script src="js/main.js" defer></script>
   <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"AccountingService",
-  "name":"Numeriq Global",
-  "email":"talhafarooqi@numeriqglobal.org",
-  "telephone":"+447376984098",
-  "url":"https://numeriqglobal.org",
-  "logo":"https://numeriqglobal.org/images/logo-light.svg",
-  "description":"Elite financial advisory, bookkeeping, accounting, and fractional CFO services for businesses worldwide."
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "Organization",
+      "@id": "https://numeriqglobal.org/#organization",
+      "name": "Numeriq Global",
+      "url": "https://numeriqglobal.org",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://numeriqglobal.org/images/logo-dark.svg"
+      },
+      "image": "https://numeriqglobal.org/images/preview-image.webp",
+      "description": "Professional accounting, bookkeeping, payroll, tax planning, financial reporting, and Fractional CFO services for startups, SMEs, and growing businesses.",
+      "email": "talhafarooqi@numeriqglobal.org",
+      "telephone": "+447376984098",
+      "foundingDate": "2026",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61572033266331"
+      ]
+    },
+
+    {
+      "@type": "AccountingService",
+      "@id": "https://numeriqglobal.org/#accountingservice",
+      "name": "Numeriq Global",
+      "url": "https://numeriqglobal.org",
+      "logo": "https://numeriqglobal.org/images/logo-dark.svg",
+      "image": "https://numeriqglobal.org/images/preview-image.webp",
+      "telephone": "+447376984098",
+      "email": "talhafarooqi@numeriqglobal.org",
+      "priceRange": "$$",
+      "currenciesAccepted": "USD, GBP",
+      "paymentAccepted": "Bank Transfer",
+      "areaServed": "Worldwide",
+      "serviceType": [
+        "Accounting Services",
+        "Bookkeeping Services",
+        "Payroll Services",
+        "Financial Reporting",
+        "Financial Advisory",
+        "Tax Planning",
+        "Tax Preparation",
+        "Fractional CFO Services",
+        "Business Finance Consulting"
+      ],
+      "description": "Numeriq Global helps startups, SMEs, and growing businesses with professional accounting, bookkeeping, payroll management, tax planning, financial reporting, and Fractional CFO services.",
+      "provider": {
+        "@id": "https://numeriqglobal.org/#organization"
+      }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://numeriqglobal.org/#website",
+      "url": "https://numeriqglobal.org",
+      "name": "Numeriq Global",
+      "publisher": {
+        "@id": "https://numeriqglobal.org/#organization"
+      },
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://numeriqglobal.org/blog/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://numeriqglobal.org/#webpage",
+      "url": "https://numeriqglobal.org",
+      "name": "Numeriq Global | Accounting, Bookkeeping & Fractional CFO Services",
+      "description": "Professional accounting, bookkeeping, payroll, tax planning, financial reporting, and Fractional CFO services.",
+      "isPartOf": {
+        "@id": "https://numeriqglobal.org/#website"
+      },
+      "about": {
+        "@id": "https://numeriqglobal.org/#accountingservice"
+      }
+    }
+
+  ]
 }
 </script>
 </body>
