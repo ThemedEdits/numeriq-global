@@ -62,7 +62,7 @@
   object-position: bottom left;
   z-index: 4;
   opacity: 0;
-  transition: opacity .9s ease .5s;
+  transition: opacity .5s ease .5s;
 }
 
 .hero-logo-img.logo-revealed {
