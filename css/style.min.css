@@ -1021,36 +1021,6 @@ textarea {
   box-shadow: var(--shadow-md);
 }
 
-.why-card-float {
-  position: absolute;
-  bottom: 2rem;
-  left: -2rem;
-  background: var(--navy);
-  color: var(--white);
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  box-shadow: var(--shadow-md);
-}
-
-.why-card-float i {
-  font-size: 1.5rem;
-  color: var(--green);
-}
-
-.why-card-float strong {
-  display: block;
-  font-size: .9rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.why-card-float span {
-  font-size: .75rem;
-  color: rgba(255, 255, 255, .65);
-}
 
 /* ─── PROCESS ────────────────────────────── */
 .process {
@@ -1787,11 +1757,6 @@ textarea {
   .why-visual {
     order: -1;
   }
-
-  .why-card-float {
-    left: 1rem;
-  }
-
   .why-img {
     height: 380px;
   }
@@ -2005,11 +1970,6 @@ textarea {
     height: 320px;
   }
 
-  .why-card-float {
-    left: 1rem;
-    bottom: 1rem;
-  }
-
   /* ── Process ── */
   .process-steps {
     grid-template-columns: repeat(2, 1fr);
@@ -2146,13 +2106,6 @@ textarea {
     font-size: 1.1rem;
   }
 
-  /* Why us card float adjust */
-  .why-card-float {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -1.25rem;
-    white-space: nowrap;
-  }
 
   /* CTA banner */
   .cta-banner {
