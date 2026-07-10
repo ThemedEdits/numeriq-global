@@ -295,13 +295,7 @@
 
         <i class="fa-solid fa-chevron-right bc-sep"></i>
 
-        <a href="../../blog/." class="bc-item bc-cat">
-          Accounting
-        </a>
-
-        <i class="fa-solid fa-chevron-right bc-sep"></i>
-
-        <span class="bc-item bc-current">
+        <span class="bc-item bc-current bc-cat">
           Small Business Accounting Services
         </span>
       </nav>
@@ -768,9 +762,18 @@
           <div class="post-share">
             <span class="share-label">Share this article</span>
             <div class="share-btns">
-              <a href="#" class="share-btn" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="#" class="share-btn" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" class="share-btn" aria-label="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://numeriqglobal.com/blog/small-business-accounting-services/"
+                target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://twitter.com/intent/tweet?url=https://numeriqglobal.com/blog/small-business-accounting-services/&text=Small%20Business%20Accounting%20Services%3A%20Everything%20You%20Need%20to%20Know&via=NumeriqGlobal"
+                target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on X">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="https://wa.me/?text=Small%20Business%20Accounting%20Services%3A%20Everything%20You%20Need%20to%20Know%20-%20https://numeriqglobal.org/blog/small-business-accounting-services/"
+                target="_blank" rel="noopener noreferrer" class="share-btn" aria-label="Share on WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
               <button class="share-btn share-copy" id="copyLink" aria-label="Copy link"><i
                   class="fa-solid fa-link"></i></button>
             </div>
@@ -910,14 +913,36 @@
   <script>
     // Copy link button
     document.getElementById('copyLink')?.addEventListener('click', () => {
-      navigator.clipboard.writeText(window.location.href).then(() => {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
         const btn = document.getElementById('copyLink');
         btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        setTimeout(() => { btn.innerHTML = '<i class="fa-solid fa-link"></i>'; }, 2000);
+        btn.style.background = 'var(--green)';
+        btn.style.borderColor = 'var(--green)';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-solid fa-link"></i>';
+          btn.style.background = '';
+          btn.style.borderColor = '';
+          btn.style.color = '';
+        }, 2000);
       });
     });
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    document.querySelector('a[aria-label="Share on LinkedIn"]')
+      .href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+
+    document.querySelector('a[aria-label="Share on X"]')
+      .href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+
+    document.querySelector('a[aria-label="Share on WhatsApp"]')
+      .href = `https://wa.me/?text=${pageTitle}%20-%20${pageUrl}`;
   </script>
 </body>
 
